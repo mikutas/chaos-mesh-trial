@@ -1,0 +1,27 @@
+helmDefaults:
+  cleanupOnFail: true
+  timeout: 600
+  atomic: true
+
+repositories:
+- name: chaos-mesh
+  url: https://charts.chaos-mesh.org
+
+releases:
+- name: chaos-mesh
+  namespace: chaos-mesh
+  createNamespace: true
+  chart: chaos-mesh/chaos-mesh
+  version: 2.5.1
+  values:
+  - chaosDaemon:
+      runtime: containerd
+      socketPath: /run/k3s/containerd/containerd.sock
+  - dashboard:
+      ingress:
+        enabled: true
+        annotations:
+          ingress.kubernetes.io/ssl-redirect: "false"
+        hosts: []
+        ingressClassName: traefik
+      securityMode: false
