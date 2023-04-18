@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    ":timezone(Asia/Tokyo)"
+  ],
+  "platformAutomerge": true,
+  // https://docs.renovatebot.com/modules/manager/helmfile/
+  "registryAliases": {
+    "chaos-mesh": "https://charts.chaos-mesh.org"
+  }
+}
