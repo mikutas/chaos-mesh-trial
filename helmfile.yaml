@@ -15,13 +15,16 @@ releases:
   version: 2.5.1
   values:
   - chaosDaemon:
+      # https://chaos-mesh.org/docs/production-installation-using-helm/#k3s
       runtime: containerd
       socketPath: /run/k3s/containerd/containerd.sock
   - dashboard:
       ingress:
         enabled: true
         annotations:
+          # https://k3d.io/v5.4.9/usage/exposing_services/
           ingress.kubernetes.io/ssl-redirect: "false"
         hosts: []
         ingressClassName: traefik
+      # https://chaos-mesh.org/docs/manage-user-permissions/#enable-or-disable-permission-authentication
       securityMode: false
