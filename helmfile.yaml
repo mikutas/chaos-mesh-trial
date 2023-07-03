@@ -20,6 +20,7 @@ releases:
       socketPath: /run/k3s/containerd/containerd.sock
   - dashboard:
       ingress:
+        apiVersionOverrides: networking.k8s.io/v1
         enabled: true
         annotations:
           # https://k3d.io/v5.4.9/usage/exposing_services/
